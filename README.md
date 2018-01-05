@@ -8,4 +8,5 @@
 #### Version-1.0.0 (2018年1月5日首次提交)，完成照片浏览的基本功能，稳定简单易用。
 ---
 
+![image](https://github.com/zhengwenming/WMPhotoBrowser/blob/master/WMPhotoBrowser/WMPhotoBrowser.gif)  
 
