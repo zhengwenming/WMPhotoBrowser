@@ -25,7 +25,7 @@
         self.scrollView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         self.scrollView.bouncesZoom = YES;
         self.scrollView.maximumZoomScale = 2.5;//放大比例
-        self.scrollView.minimumZoomScale = 0.6;//缩小比例
+        self.scrollView.minimumZoomScale = 1.0;//缩小比例
         self.scrollView.multipleTouchEnabled = YES;
         self.scrollView.delegate = self;
         self.scrollView.scrollsToTop = NO;

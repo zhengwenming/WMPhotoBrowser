@@ -28,8 +28,7 @@
             UITableView.appearance.estimatedSectionFooterHeight = 0;
             UITableView.appearance.estimatedSectionHeaderHeight = 0;
         }else{
-            if([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)])
-            {
+            if([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
                 self.automaticallyAdjustsScrollViewInsets=NO;
             }
         }
