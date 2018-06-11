@@ -16,7 +16,7 @@
 }
 @property(nonatomic,assign)BOOL isHideNaviBar;
 @property(nonatomic,strong) UICollectionView *collectionView;
-
+@property(nonatomic,strong) UIPageControl *pageControl;
 @end
 
 @implementation WMPhotoBrowser
@@ -58,7 +58,7 @@
     if (_collectionView==nil) {
         WMCollectionViewFlowLayout *layout = [[WMCollectionViewFlowLayout alloc] init];
         layout.imgaeGap = 20;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , self.view.frame.size.height) collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor blackColor];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
@@ -67,7 +67,7 @@
         [_collectionView registerClass:[WMPhotoBrowserCell class] forCellWithReuseIdentifier:@"WMPhotoBrowserCell"];
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.contentOffset = CGPointMake(0, 0);
-        _collectionView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * self.dataSource.count, [UIScreen mainScreen].bounds.size.height);
+        _collectionView.contentSize = CGSizeMake(self.view.frame.size.width * self.dataSource.count, self.view.frame.size.height);
     }
     return _collectionView;
 }
@@ -93,8 +93,20 @@
     if (self.dataSource.count) {
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:(self.currentPhotoIndex) inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
     }
+    [self.view addSubview:self.pageControl];
+    self.pageControl.numberOfPages = self.dataSource.count;
+    self.pageControl.currentPage = self.currentPhotoIndex;
 }
-
+-(UIPageControl *)pageControl{
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-30, self.view.frame.size.width, 30)];
+        _pageControl.numberOfPages = 5;
+        _pageControl.pageIndicatorTintColor = [UIColor darkGrayColor];
+        _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+        _pageControl.backgroundColor = [UIColor clearColor];
+    }
+    return _pageControl;
+}
 - (void)saveImage{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.currentPhotoIndex inSection:0];
@@ -105,8 +117,7 @@
     });
 }
 
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
     if (error) {
         [MBProgressHUD showErrorWithText:@"保存失败"];
     } else {
@@ -124,6 +135,8 @@
         CGPoint offSet = scrollView.contentOffset;
         self.currentPhotoIndex = offSet.x / self.view.width;
         self.title = [NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
+        self.pageControl.currentPage = self.currentPhotoIndex;
+
     }
 //    if (self.currentPhotoIndex==0) {
 //        scrollView.bounces = NO;
@@ -176,8 +189,6 @@
             }];
         };
     }
-    
-    
     cell.currentIndexPath = indexPath;
     self.title = [NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
     return cell;
