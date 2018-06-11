@@ -9,6 +9,7 @@
 #import "WMPhotoBrowser.h"
 #import "WMPhotoBrowserCell.h"
 #import "MBProgressHUD+Show.h"
+#import "WMCollectionViewFlowLayout.h"
 
 @interface WMPhotoBrowser ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate> {
     
@@ -55,11 +56,8 @@
 }
 -(UICollectionView *)collectionView{
     if (_collectionView==nil) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-        layout.minimumInteritemSpacing = 0;
-        layout.minimumLineSpacing = 0;
+        WMCollectionViewFlowLayout *layout = [[WMCollectionViewFlowLayout alloc] init];
+        layout.imgaeGap = 20;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height) collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor blackColor];
         _collectionView.dataSource = self;
@@ -67,7 +65,6 @@
         _collectionView.pagingEnabled = YES;
         _collectionView.scrollsToTop = NO;
         [_collectionView registerClass:[WMPhotoBrowserCell class] forCellWithReuseIdentifier:@"WMPhotoBrowserCell"];
-
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.contentOffset = CGPointMake(0, 0);
         _collectionView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * self.dataSource.count, [UIScreen mainScreen].bounds.size.height);

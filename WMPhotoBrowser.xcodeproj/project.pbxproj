@@ -38,6 +38,7 @@
 		702B6EED1FFF1A6000723A50 /* resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 702B6EEC1FFF1A6000723A50 /* resource.xcassets */; };
 		702B6F001FFF38DE00723A50 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702B6EFF1FFF38DE00723A50 /* BaseViewController.m */; };
 		702B6F021FFF5E7C00723A50 /* WMPhotoBrowser.gif in Resources */ = {isa = PBXBuildFile; fileRef = 702B6F011FFF5E7B00723A50 /* WMPhotoBrowser.gif */; };
+		70763CE220CE8CD600DCB7BE /* WMCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 70763CE120CE8CD600DCB7BE /* WMCollectionViewFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,8 @@
 		702B6EFE1FFF38DE00723A50 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		702B6EFF1FFF38DE00723A50 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		702B6F011FFF5E7B00723A50 /* WMPhotoBrowser.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WMPhotoBrowser.gif; sourceTree = "<group>"; };
+		70763CE020CE8CD600DCB7BE /* WMCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		70763CE120CE8CD600DCB7BE /* WMCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				7018F2841FFB62560060CC33 /* WMPhotoBrowserCell.m */,
 				702B6EAC1FFF179D00723A50 /* UIView+WMFrame.h */,
 				702B6EAD1FFF179D00723A50 /* UIView+WMFrame.m */,
+				70763CE020CE8CD600DCB7BE /* WMCollectionViewFlowLayout.h */,
+				70763CE120CE8CD600DCB7BE /* WMCollectionViewFlowLayout.m */,
 			);
 			path = WMPhotoBrowser;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				7018F2851FFB62560060CC33 /* WMPhotoBrowserCell.m in Sources */,
 				702B6EDA1FFF185D00723A50 /* UIButton+WebCache.m in Sources */,
 				702B6EE91FFF197300723A50 /* MBProgressHUD.m in Sources */,
+				70763CE220CE8CD600DCB7BE /* WMCollectionViewFlowLayout.m in Sources */,
 				702B6ED21FFF185D00723A50 /* NSData+ImageContentType.m in Sources */,
 				702B6ED91FFF185D00723A50 /* SDWebImagePrefetcher.m in Sources */,
 				702B6ED61FFF185D00723A50 /* SDWebImageDownloader.m in Sources */,
