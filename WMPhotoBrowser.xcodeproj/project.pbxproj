@@ -15,7 +15,6 @@
 		701ECBAC1FF6405A00EC8B4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701ECBAB1FF6405A00EC8B4A /* Assets.xcassets */; };
 		701ECBAF1FF6405A00EC8B4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701ECBAD1FF6405A00EC8B4A /* LaunchScreen.storyboard */; };
 		701ECBB21FF6405A00EC8B4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 701ECBB11FF6405A00EC8B4A /* main.m */; };
-		702B6EAE1FFF179D00723A50 /* UIView+WMFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 702B6EAD1FFF179D00723A50 /* UIView+WMFrame.m */; };
 		702B6ED11FFF185D00723A50 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 702B6EB11FFF185D00723A50 /* MKAnnotationView+WebCache.m */; };
 		702B6ED21FFF185D00723A50 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 702B6EB31FFF185D00723A50 /* NSData+ImageContentType.m */; };
 		702B6ED31FFF185D00723A50 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 702B6EB51FFF185D00723A50 /* SDImageCache.m */; };
@@ -36,9 +35,11 @@
 		702B6EE81FFF197300723A50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 702B6EE41FFF197300723A50 /* MBProgressHUD.bundle */; };
 		702B6EE91FFF197300723A50 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 702B6EE61FFF197300723A50 /* MBProgressHUD.m */; };
 		702B6EED1FFF1A6000723A50 /* resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 702B6EEC1FFF1A6000723A50 /* resource.xcassets */; };
-		702B6F001FFF38DE00723A50 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702B6EFF1FFF38DE00723A50 /* BaseViewController.m */; };
 		702B6F021FFF5E7C00723A50 /* WMPhotoBrowser.gif in Resources */ = {isa = PBXBuildFile; fileRef = 702B6F011FFF5E7B00723A50 /* WMPhotoBrowser.gif */; };
+		706D1DA220D2065100EBE076 /* UIViewController+WMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 706D1DA120D2065100EBE076 /* UIViewController+WMExtension.m */; };
+		706D1DA520D2085B00EBE076 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706D1DA320D2085B00EBE076 /* BaseNavigationController.m */; };
 		70763CE220CE8CD600DCB7BE /* WMCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 70763CE120CE8CD600DCB7BE /* WMCollectionViewFlowLayout.m */; };
+		70763CE820CF57C100DCB7BE /* UIView+WMFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 70763CE420CF57C100DCB7BE /* UIView+WMFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +57,6 @@
 		701ECBAE1FF6405A00EC8B4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		701ECBB01FF6405A00EC8B4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		701ECBB11FF6405A00EC8B4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		702B6EAC1FFF179D00723A50 /* UIView+WMFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WMFrame.h"; sourceTree = "<group>"; };
-		702B6EAD1FFF179D00723A50 /* UIView+WMFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WMFrame.m"; sourceTree = "<group>"; };
 		702B6EB01FFF185D00723A50 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		702B6EB11FFF185D00723A50 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		702B6EB21FFF185D00723A50 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -97,11 +96,15 @@
 		702B6EE51FFF197300723A50 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		702B6EE61FFF197300723A50 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		702B6EEC1FFF1A6000723A50 /* resource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = resource.xcassets; sourceTree = "<group>"; };
-		702B6EFE1FFF38DE00723A50 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		702B6EFF1FFF38DE00723A50 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		702B6F011FFF5E7B00723A50 /* WMPhotoBrowser.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WMPhotoBrowser.gif; sourceTree = "<group>"; };
+		706D1DA020D2065100EBE076 /* UIViewController+WMExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WMExtension.h"; sourceTree = "<group>"; };
+		706D1DA120D2065100EBE076 /* UIViewController+WMExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WMExtension.m"; sourceTree = "<group>"; };
+		706D1DA320D2085B00EBE076 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		706D1DA420D2085B00EBE076 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		70763CE020CE8CD600DCB7BE /* WMCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		70763CE120CE8CD600DCB7BE /* WMCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		70763CE420CF57C100DCB7BE /* UIView+WMFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WMFrame.m"; sourceTree = "<group>"; };
+		70763CE520CF57C100DCB7BE /* UIView+WMFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WMFrame.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +139,10 @@
 			children = (
 				701ECBA21FF6405A00EC8B4A /* AppDelegate.h */,
 				701ECBA31FF6405A00EC8B4A /* AppDelegate.m */,
-				702B6EFD1FFF38DE00723A50 /* BaseViewController */,
 				701ECBA51FF6405A00EC8B4A /* ViewController.h */,
 				701ECBA61FF6405A00EC8B4A /* ViewController.m */,
+				706D1DA420D2085B00EBE076 /* BaseNavigationController.h */,
+				706D1DA320D2085B00EBE076 /* BaseNavigationController.m */,
 				701ECBB81FF640C300EC8B4A /* WMPhotoBrowser */,
 				701ECBA81FF6405A00EC8B4A /* Main.storyboard */,
 				702B6EE11FFF197300723A50 /* MBprogressHUD */,
@@ -157,11 +161,10 @@
 			children = (
 				7018F2801FFB61B90060CC33 /* WMPhotoBrowser.h */,
 				7018F2811FFB61B90060CC33 /* WMPhotoBrowser.m */,
+				70763CE320CF575500DCB7BE /* Category */,
 				702B6EEC1FFF1A6000723A50 /* resource.xcassets */,
 				7018F2831FFB62560060CC33 /* WMPhotoBrowserCell.h */,
 				7018F2841FFB62560060CC33 /* WMPhotoBrowserCell.m */,
-				702B6EAC1FFF179D00723A50 /* UIView+WMFrame.h */,
-				702B6EAD1FFF179D00723A50 /* UIView+WMFrame.m */,
 				70763CE020CE8CD600DCB7BE /* WMCollectionViewFlowLayout.h */,
 				70763CE120CE8CD600DCB7BE /* WMCollectionViewFlowLayout.m */,
 			);
@@ -220,13 +223,15 @@
 			path = MBprogressHUD;
 			sourceTree = "<group>";
 		};
-		702B6EFD1FFF38DE00723A50 /* BaseViewController */ = {
+		70763CE320CF575500DCB7BE /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				702B6EFE1FFF38DE00723A50 /* BaseViewController.h */,
-				702B6EFF1FFF38DE00723A50 /* BaseViewController.m */,
+				706D1DA020D2065100EBE076 /* UIViewController+WMExtension.h */,
+				706D1DA120D2065100EBE076 /* UIViewController+WMExtension.m */,
+				70763CE520CF57C100DCB7BE /* UIView+WMFrame.h */,
+				70763CE420CF57C100DCB7BE /* UIView+WMFrame.m */,
 			);
-			path = BaseViewController;
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,7 +308,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				702B6EAE1FFF179D00723A50 /* UIView+WMFrame.m in Sources */,
 				702B6ED81FFF185D00723A50 /* SDWebImageManager.m in Sources */,
 				702B6ED31FFF185D00723A50 /* SDImageCache.m in Sources */,
 				702B6ED71FFF185D00723A50 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -315,7 +319,6 @@
 				702B6ED21FFF185D00723A50 /* NSData+ImageContentType.m in Sources */,
 				702B6ED91FFF185D00723A50 /* SDWebImagePrefetcher.m in Sources */,
 				702B6ED61FFF185D00723A50 /* SDWebImageDownloader.m in Sources */,
-				702B6F001FFF38DE00723A50 /* BaseViewController.m in Sources */,
 				702B6EE71FFF197300723A50 /* MBProgressHUD+Show.m in Sources */,
 				701ECBA71FF6405A00EC8B4A /* ViewController.m in Sources */,
 				702B6EDD1FFF185D00723A50 /* UIImage+WebP.m in Sources */,
@@ -328,6 +331,9 @@
 				7018F2821FFB61B90060CC33 /* WMPhotoBrowser.m in Sources */,
 				702B6EDC1FFF185D00723A50 /* UIImage+MultiFormat.m in Sources */,
 				702B6EDE1FFF185D00723A50 /* UIImageView+HighlightedWebCache.m in Sources */,
+				706D1DA520D2085B00EBE076 /* BaseNavigationController.m in Sources */,
+				70763CE820CF57C100DCB7BE /* UIView+WMFrame.m in Sources */,
+				706D1DA220D2065100EBE076 /* UIViewController+WMExtension.m in Sources */,
 				702B6EDB1FFF185D00723A50 /* UIImage+GIF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

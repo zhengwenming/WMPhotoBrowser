@@ -10,6 +10,7 @@
 #import "WMPhotoBrowserCell.h"
 #import "MBProgressHUD+Show.h"
 #import "WMCollectionViewFlowLayout.h"
+#import "UIViewController+WMExtension.h"
 
 @interface WMPhotoBrowser ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate> {
     
@@ -20,6 +21,21 @@
 @end
 
 @implementation WMPhotoBrowser
+- (BOOL)fullScreenGestureShouldBegin{
+    return NO;
+}
+// 是否支持自动转屏
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+// 支持哪些屏幕方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+// 默认的屏幕方向（当前ViewController必须是通过模态出来的UIViewController（模态带导航的无效）方式展现出来的，才会调用这个方法）
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
 - (instancetype)init{
     self = [super init];
     if (self) {
@@ -70,6 +86,23 @@
         _collectionView.contentSize = CGSizeMake(self.view.frame.size.width * self.dataSource.count, self.view.frame.size.height);
     }
     return _collectionView;
+}
+// 如果实现了iOS8以后的方法, 则旧版方法会覆盖
+
+//视图发生了大小改变的时候会调用此方法   大小改变 == 横竖切换
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    NSLog(@"size; %@", NSStringFromCGSize(size));
+    if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft || [UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight) {
+        NSLog(@"横屏");
+        self.collectionView.frame = CGRectMake(0, 0,size.width,size.height);
+        self.pageControl.frame = CGRectMake(0, size.height-30,size.width,30);
+        self.pageControl.centerX = self.view.centerX;
+    }else{
+        self.collectionView.frame = CGRectMake(0, 0,size.width,size.height);
+        self.pageControl.frame = CGRectMake(0, size.height-30,size.width,30);
+        self.pageControl.centerX = self.view.centerX;
+    }
+    
 }
 #pragma mark
 #pragma mark viewDidLoad
@@ -129,15 +162,6 @@
 }
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([self.title isEqualToString:@"图片预览"]) {
-        
-    }else{
-        CGPoint offSet = scrollView.contentOffset;
-        self.currentPhotoIndex = offSet.x / self.view.width;
-        self.title = [NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
-        self.pageControl.currentPage = self.currentPhotoIndex;
-
-    }
 //    if (self.currentPhotoIndex==0) {
 //        scrollView.bounces = NO;
 //    }else{
@@ -145,7 +169,14 @@
 //    }
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
+    if ([self.title isEqualToString:@"图片预览"]) {
+        
+    }else{
+        CGPoint offSet = scrollView.contentOffset;
+        self.currentPhotoIndex = offSet.x / self.view.width;
+        self.title = [NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
+        self.pageControl.currentPage = self.currentPhotoIndex;
+    }
 }
 
 #pragma mark - UICollectionViewDataSource && Delegate

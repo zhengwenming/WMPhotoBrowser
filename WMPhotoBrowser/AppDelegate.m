@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "BaseNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -17,10 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
     self.window  = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
+    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:[ViewController new]];
     nav.navigationBar.translucent = YES;
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];

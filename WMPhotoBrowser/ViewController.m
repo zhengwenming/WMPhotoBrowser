@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"图片浏览器";
     //1、测试URL图片
         UIButton *testBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
