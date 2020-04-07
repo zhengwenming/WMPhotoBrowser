@@ -26,7 +26,7 @@
 - (BOOL)fullScreenGestureShouldBegin{
     return YES;
 }
-#warning 必须指定模式返回按钮的图片
+//#warning 必须指定模式返回按钮的图片
 //返回按钮的图片,默认为back_white,想要其他颜色，重写方法，返回按钮的图片名字
 -(NSString *)backIconName{
     return @"back_white";

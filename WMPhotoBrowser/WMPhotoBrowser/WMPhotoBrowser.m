@@ -132,7 +132,8 @@
 }
 -(UIPageControl *)pageControl{
     if (!_pageControl) {
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-30, self.view.frame.size.width, 30)];
+      
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-(IS_IPHONEX?60:30), self.view.frame.size.width, 30)];
         _pageControl.numberOfPages = 5;
         _pageControl.pageIndicatorTintColor = [UIColor darkGrayColor];
         _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
@@ -141,7 +142,7 @@
     return _pageControl;
 }
 - (void)saveImage{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.currentPhotoIndex inSection:0];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             WMPhotoBrowserCell *currentCell = (WMPhotoBrowserCell *)[_collectionView cellForItemAtIndexPath:indexPath];

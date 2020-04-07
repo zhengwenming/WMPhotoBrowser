@@ -59,6 +59,7 @@
     browser.dataSource = @[[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"3"],[UIImage imageNamed:@"4"],[UIImage imageNamed:@"5"]].mutableCopy;
     browser.downLoadNeeded = YES;
     browser.currentPhotoIndex= 2;
+    browser.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:browser animated:YES completion:^{
         
     }];

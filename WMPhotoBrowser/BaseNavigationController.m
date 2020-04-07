@@ -92,7 +92,7 @@
                 viewController.navigationItem.hidesBackButton = YES;
             }else{
                 //给push的每个VC加返回按钮
-                NSString *imageName = [viewController backIconName];
+//                NSString *imageName = [viewController backIconName];
 //                viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:imageName highIcon:@"" target:self action:@selector(back:)];
             }
     }
