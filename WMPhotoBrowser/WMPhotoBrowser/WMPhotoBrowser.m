@@ -62,12 +62,12 @@
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             [self.dataSource removeObjectAtIndex:self.currentPhotoIndex];
-            self.title = [NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
+//            self.title = [NSString stringWithFormat:@"%d/%lu",self.currentPhotoIndex+1,(unsigned long)self.dataSource.count];
             [self.collectionView reloadData];
         }
     
     if (self.deleteBlock) {
-        self.deleteBlock(self.dataSource,self.currentPhotoIndex,self.collectionView);
+self.deleteBlock(self.dataSource,self.currentPhotoIndex,self.collectionView);
     }
 }
 -(UICollectionView *)collectionView{
@@ -119,7 +119,7 @@
     }else if(self.deleteNeeded){
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteTheImage:)];
     }
-    self.title = self.title?self.title:[NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
+//    self.title = self.title?self.title:[NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
     self.view.backgroundColor = [UIColor blackColor];
     self.isHideNaviBar = NO;
     [self.view addSubview:self.collectionView];
@@ -182,7 +182,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     }else{
         CGPoint offSet = scrollView.contentOffset;
         self.currentPhotoIndex = offSet.x / self.view.width;
-        self.title = [NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
+//        self.title = [NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
         self.pageControl.currentPage = self.currentPhotoIndex;
     }
 }
@@ -229,7 +229,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         };
     }
     cell.currentIndexPath = indexPath;
-    self.title = [NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
+//    self.title = [NSString stringWithFormat:@"%ld/%ld",self.currentPhotoIndex+1,self.dataSource.count];
     return cell;
 }
 - (void)dealloc{
