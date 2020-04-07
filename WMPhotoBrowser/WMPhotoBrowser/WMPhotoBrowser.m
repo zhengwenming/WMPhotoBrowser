@@ -132,9 +132,16 @@
 }
 -(UIPageControl *)pageControl{
     if (!_pageControl) {
-      
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-(IS_IPHONEX?60:30), self.view.frame.size.width, 30)];
+        CGFloat bottomOffset = 30;
+        if (@available(iOS 11.0, *)) {
+            BOOL isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;
+            if (isPhoneX) {
+                bottomOffset = 60;
+            }
+        }
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-bottomOffset, self.view.frame.size.width, 30)];
         _pageControl.numberOfPages = 5;
+        _pageControl.userInteractionEnabled = NO;
         _pageControl.pageIndicatorTintColor = [UIColor darkGrayColor];
         _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
         _pageControl.backgroundColor = [UIColor clearColor];
@@ -145,7 +152,7 @@
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.currentPhotoIndex inSection:0];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            WMPhotoBrowserCell *currentCell = (WMPhotoBrowserCell *)[_collectionView cellForItemAtIndexPath:indexPath];
+            WMPhotoBrowserCell *currentCell = (WMPhotoBrowserCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
             UIImageWriteToSavedPhotosAlbum(currentCell.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
         });
     });

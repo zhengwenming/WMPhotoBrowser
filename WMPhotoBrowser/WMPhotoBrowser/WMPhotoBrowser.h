@@ -7,12 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#define IS_IPHONEX \
-({BOOL isPhoneX = NO;\
-if (@available(iOS 11.0, *)) {\
-isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
-}\
-(isPhoneX);})
 
 typedef void(^DeleteBlock)(NSMutableArray *dataSource,NSUInteger currentIndex,UICollectionView *collectionView);
 typedef void(^DownLoadBlock)(NSMutableArray *dataSource,UIImage *image,NSError *error);
